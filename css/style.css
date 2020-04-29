@@ -17,27 +17,32 @@ h2{
   margin: 10px 5px 10px 10px;
   border:10px;
   padding: 5px;
+  color: #defabc;
+
 }
 h3{
   text-align: center;
   font-size:32px;
+
+}
+.input-field{
+  text-align: center;
 }
 main{
   padding-bottom:500px;
   color:#ffffff;
 }
 .button{
-  margin:20px;
   padding:10px 10px 10px 10px;
   size:300px;
-  text-align:center;
-  right:30%;
+  text-align: center;
+  margin-right:20px;
+  margin-left: 20px;
 }
 button{
-  width:100px;
-  margin-right:50px;
+  margin-right: 20px;
+  width:200px;
 }
-
 .recipe{
   margin:30px;
 }
@@ -51,10 +56,12 @@ ol,li{
   padding: 5px;
 }
 p{
+  color: #defabc;
   font-size:16px;
   line-height:2;
   margin: 4% 4% 2% 4%;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right:20px;
+  text-align: center;
 }

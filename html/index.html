@@ -18,14 +18,18 @@
   <h3 id="white-header" hidden="true">Making White Rice</h3>
 </header>
 <main>
-  <div class="button">
+  <div class = "button">
   <button name="Cali" id="cali-button">California</button>
   <button name="White" id="white-button">White</button>
   </div>
-    <div id="white-recipe" class="recipe" hidden="true">
+  <p>Please input the amount of ounces of rice you would like to make:</p>
+  <div class ="input-field">
+  <input id= "oz-input" type=number value=8 min = 0 onchange="calculateAmount()">
+  </div>
+  <div id="white-recipe" class="recipe" hidden="true">
     <ol>
       <li>
-        Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil
+        Combine <b id="r-ounce"></b> oz of rice with <b id="w-ounce"></b> oz of water and <b id="o-ounce"></b> oz of olive oil
       </li>
       <li>
         Bring to a boil
@@ -42,7 +46,7 @@
     <p>For slightly al dente rice:</p>
     <ol>
       <li>
-        Combine 1 1/4 cups of rice with 2 cups of water or broth and 1 Tbsp olive oil      </li>
+        Combine 1 1/4 oz of rice with 2 oz of water or broth and 1 oz olive oil      </li>
       <li>
         Bring to a boil and stir once to mix
       </li>
@@ -57,7 +61,7 @@
       </li>
     </ol>
     <p>For softer rice:</p>
-    <p>Increase liquid by 1/2 cup and cook time by 5 minutes</p>
+    <p>Increase liquid by 4 oz and cook time by 5 minutes</p>
   </div>
 </main>
 <footer>
