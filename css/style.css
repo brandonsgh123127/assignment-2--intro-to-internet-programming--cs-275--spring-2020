@@ -5,7 +5,7 @@ html{
 }
 header{
   text-align: center;
-  margin: 20px 20px 20px 80px;
+  margin: 20px 20px 20px 20px;
   padding:10px 10px 10px 10px;
 }
 h1{
@@ -14,7 +14,7 @@ h1{
 }
 h2{
   color:#ffffff;
-  margin: 10px 5px 10px 5px;
+  margin: 10px 5px 10px 10px;
   border:10px;
   padding: 5px;
 }
@@ -27,10 +27,17 @@ main{
   color:#ffffff;
 }
 .button{
+  margin:20px;
+  padding:10px 10px 10px 10px;
+  size:300px;
   text-align:center;
-  position:absolute;
-  right:27%;
-  left:30%;}
+  right:30%;
+}
+button{
+  width:100px;
+  margin-right:50px;
+}
+
 .recipe{
   margin:30px;
 }
@@ -46,7 +53,7 @@ ol,li{
 p{
   font-size:16px;
   line-height:2;
-  margin: 2% 4% 2% 4%;
+  margin: 4% 4% 2% 4%;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right:20px;
