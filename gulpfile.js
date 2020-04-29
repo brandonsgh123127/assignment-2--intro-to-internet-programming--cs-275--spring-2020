@@ -14,6 +14,9 @@ let compressCSS = () => {
     return src(`css/*.css`).pipe(cssCompress({
         collapseWhitespace: true})).pipe(dest(`temp/css/`))
 };
+let moveJS = () => {
+    return src(`js/*.js`).pipe(dest(`temp/js/`));
+}
 
 let sync = () =>{
     browserSync({
@@ -27,6 +30,7 @@ let sync = () =>{
         `./js/**/*.js`,
         `./css/*.css`
     ]).on(`change`,compressHTML).on(`change`,compressCSS)
+        .on(`change`,moveJS)
         .on(`change`,reload);};
 
 exports.default = compressHTML;
