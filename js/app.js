@@ -65,6 +65,7 @@ function calculateAmount() {
     }
     else if(typeRice==`cali`)
     {
+
         calcDente(input);
         denteRecipeVars[0].textContent=dRiceOz;
         denteRecipeVars[1].textContent=dWaterOz;
