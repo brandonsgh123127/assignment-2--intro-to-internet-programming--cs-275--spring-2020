@@ -50,11 +50,12 @@ let verifyCSS = () => {
         ]
     })).pipe(compressCSS());
 };
-
 /*
 Synchronization of modified files...
+Development Track
  */
-let sync = () =>{
+let dev = () =>{
+    verifyCode();
     browserSync({
         server: {
             baseDir: `./temp`
@@ -86,9 +87,7 @@ let verifyCode = () =>{
 };
 
 exports.default = verifyCode;
-exports.compressHTML = compressHTML;
-exports.compressCSS = compressCSS;
 exports.verifyCode = verifyCode;
-exports.sync = sync;
+exports.dev = dev;
 exports.build = build;
 
