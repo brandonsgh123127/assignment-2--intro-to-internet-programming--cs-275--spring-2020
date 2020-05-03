@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 let riceOz,waterOz,oilOz,dRiceOz,dWaterOz,dOilOz,typeRice,listAmounts;
 // eslint-disable-next-line no-unused-vars
-let caliRecipeVars,whiteRecipeVars;
+let caliRecipeVars,denteRecipeVars;
 window.onload = () => {
     riceOz= 8,waterOz=16,oilOz=8;
     listAmounts=document.getElementsByClassName(`recipe`)[0];
@@ -9,24 +9,32 @@ window.onload = () => {
     caliRecipeVars[0]= listAmounts.querySelector(`#r-ounce`);
     caliRecipeVars[1]= listAmounts.querySelector(`#w-ounce`);
     caliRecipeVars[2]= listAmounts.querySelector(`#o-ounce`);
+    denteRecipeVars= [];
+    denteRecipeVars[0]= listAmounts.querySelector(`#cr-ounce`);
+    denteRecipeVars[1]= listAmounts.querySelector(`#cw-ounce`);
+    denteRecipeVars[2]= listAmounts.querySelector(`#co-ounce`);
 
 };
 document.getElementById(`cali-button`).onclick = () => {
     document.getElementById(`cali-recipe`).hidden = false;
     document.getElementById(`white-recipe`).hidden = false;
+
 };
 document.getElementById(`white-button`).onclick = () => {
     document.getElementById(`cali-recipe`).hidden = true;
     document.getElementById(`white-recipe`).hidden = false;
+
 };
 //unused
 document.getElementById(`oz-input`).onchange = () =>{
     calculateAmount();
+
 };
 function getTypeRice() {
     if (document.getElementById(`cali-recipe`).hidden == false) {
         typeRice = `cali`;
-    } else if (document.getElementById(`cali-recipe`).hidden == false) {
+
+    } else if (document.getElementById(`white-recipe`).hidden == false) {
         typeRice = `white`;
     }
 }
@@ -44,6 +52,10 @@ function calculateAmount() {
     else if(typeRice==`white`)
     {
         calcRegular(input);
+        denteRecipeVars[0].textContent=riceOz;
+        denteRecipeVars[1].textContent=waterOz;
+        denteRecipeVars[2].textContent=oilOz;
+
     }
     else{
         console.log(`Error in retrieving button pressed`);
