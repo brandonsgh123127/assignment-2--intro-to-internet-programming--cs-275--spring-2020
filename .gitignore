@@ -649,3 +649,8 @@ flycheck_*.el
 
 # directory configuration
 .dir-locals.el
+# Product Folder
+/prod/
+
+# Temporary Folder
+/temp/

@@ -11,6 +11,7 @@ window.onload = () => {
     // which is needed to be used to change ounce amounts
     listAmounts=document.getElementsByClassName(`recipe`)[0];
     whiteRecipeVars= [];
+    console.log(`Welcome!  Created By Brandon Spada.`);
     whiteRecipeVars[0]= listAmounts.querySelector(`#r-ounce`);
     whiteRecipeVars[1]= listAmounts.querySelector(`#w-ounce`);
     whiteRecipeVars[2]= listAmounts.querySelector(`#o-ounce`);

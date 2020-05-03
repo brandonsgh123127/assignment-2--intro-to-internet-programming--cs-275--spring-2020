@@ -16,14 +16,14 @@ const htmlValidator = require(`gulp-w3c-html-validator`);
 let compressHTML = () => {
     return src(`html/*.html`).pipe(htmlCompress({
         collapseWhitespace: true}))
-        .pipe(validateHTML())
         .pipe(dest(`temp/`));
 };
 /*HTML Validator*/
 let validateHTML = () =>{
     return src(`html/*.html`)
         .pipe(htmlValidator())
-        .pipe(htmlValidator.reporter());
+        .pipe(htmlValidator.reporter())
+        .pipe(compressHTML());
 };
 /*Compress Whitespace of CSS*/
 let compressCSS = () => {
@@ -48,7 +48,7 @@ let verifyCSS = () => {
             {formatter: `string`, console: true},
             {formatter: `json`, save: `report.json`}
         ]
-    }));
+    })).pipe(compressCSS());
 };
 
 /*
@@ -65,14 +65,13 @@ let sync = () =>{
         `./html/*.html`,
         `./js/**/*.js`,
         `./css/*.css`
-    ]).on(`change`,compressHTML).on(`change`,compressCSS)
-        .on(`change`,verifyJS)
+    ]).on(`change`,verifyJS)
         .on(`change`,verifyCSS)
+        .on(`change`,validateHTML)
         .on(`change`,reload);};
 
 let build = () => {
-    return src(`temp/js/*.js`).pipe(es({fix:true})).pipe(es.format())
-        .pipe(es.failAfterError())
+    return src(`temp/js/*.js`)
         .pipe(dest(`prod/js/`)),
     src(`temp/*.html`)
         .pipe(dest(`prod/`)),
