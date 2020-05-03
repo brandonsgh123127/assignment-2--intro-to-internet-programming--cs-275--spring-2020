@@ -5,14 +5,18 @@
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
+    "babel": "^6.23.0",
     "browser-sync": "^2.26.7",
     "chalk": "^4.0.0",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-html": "^3.0.0",
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-stylelint": "^13.0.0",
+    "stylelint": "^13.3.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

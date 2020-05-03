@@ -1,23 +1,29 @@
 // eslint-disable-next-line no-unused-vars
+//Variables that store calculations of recipes
 let riceOz,waterOz,oilOz,dRiceOz,dWaterOz,dOilOz,typeRice,listAmounts;
 // eslint-disable-next-line no-unused-vars
-let caliRecipeVars,denteRecipeVars;
+//Variables that contain elements to store Oz amounts
+let whiteRecipeVars,denteRecipeVars;
+//On window load, access all elements needed to be modified on html
 window.onload = () => {
     riceOz= 8,waterOz=16,oilOz=8;
+    //listElements contains all Li and Ol objects
+    // which is needed to be used to change ounce amounts
     listAmounts=document.getElementsByClassName(`recipe`)[0];
-    caliRecipeVars= [];
-    caliRecipeVars[0]= listAmounts.querySelector(`#r-ounce`);
-    caliRecipeVars[1]= listAmounts.querySelector(`#w-ounce`);
-    caliRecipeVars[2]= listAmounts.querySelector(`#o-ounce`);
+    whiteRecipeVars= [];
+    whiteRecipeVars[0]= listAmounts.querySelector(`#r-ounce`);
+    whiteRecipeVars[1]= listAmounts.querySelector(`#w-ounce`);
+    whiteRecipeVars[2]= listAmounts.querySelector(`#o-ounce`);
+    listAmounts = document.getElementsByClassName(`recipe`)[1];
     denteRecipeVars= [];
     denteRecipeVars[0]= listAmounts.querySelector(`#cr-ounce`);
     denteRecipeVars[1]= listAmounts.querySelector(`#cw-ounce`);
     denteRecipeVars[2]= listAmounts.querySelector(`#co-ounce`);
-
 };
+//Button click events
 document.getElementById(`cali-button`).onclick = () => {
     document.getElementById(`cali-recipe`).hidden = false;
-    document.getElementById(`white-recipe`).hidden = false;
+    document.getElementById(`white-recipe`).hidden = true;
 
 };
 document.getElementById(`white-button`).onclick = () => {
@@ -25,11 +31,17 @@ document.getElementById(`white-button`).onclick = () => {
     document.getElementById(`white-recipe`).hidden = false;
 
 };
-//unused
+
+//Unused Code... Deletable////////
 document.getElementById(`oz-input`).onchange = () =>{
     calculateAmount();
-
+    //
 };
+//////////////////////////////////
+
+/*
+Retrieve the type of rice selected
+ */
 function getTypeRice() {
     if (document.getElementById(`cali-recipe`).hidden == false) {
         typeRice = `cali`;
@@ -39,34 +51,37 @@ function getTypeRice() {
     }
 }
 
+/*
+Calculates the amount of ounces necessary based on which recipe is clicked...
+ */
 function calculateAmount() {
     getTypeRice();
     const input = document.getElementById(`oz-input`).value;
-    if (typeRice==`cali`) {
+    if (typeRice==`white`) {
         calcRegular(input);
-        calcDente(input);
-        caliRecipeVars[0].textContent=riceOz;
-        caliRecipeVars[1].textContent=waterOz;
-        caliRecipeVars[2].textContent=oilOz;
+        whiteRecipeVars[0].textContent=riceOz;
+        whiteRecipeVars[1].textContent=waterOz;
+        whiteRecipeVars[2].textContent=oilOz;
     }
-    else if(typeRice==`white`)
+    else if(typeRice==`cali`)
     {
-        calcRegular(input);
-        denteRecipeVars[0].textContent=riceOz;
-        denteRecipeVars[1].textContent=waterOz;
-        denteRecipeVars[2].textContent=oilOz;
+        calcDente(input);
+        denteRecipeVars[0].textContent=dRiceOz;
+        denteRecipeVars[1].textContent=dWaterOz;
+        denteRecipeVars[2].textContent=dOilOz;
 
     }
     else{
         console.log(`Error in retrieving button pressed`);
     }
 }
-
+/*Calculates White Rice Amount*/
 function calcRegular(input){
     riceOz=input;
     waterOz=input * 2;
     oilOz=input/2;
 }
+/*Calculates Dente Rice Recipe*/
 function calcDente(input){
     dRiceOz=input;
     dWaterOz=input * 2-2;
